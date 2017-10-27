@@ -3,6 +3,8 @@
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	</head>
 
 	<body>
@@ -14,17 +16,17 @@
 
 		<form id="questions">
 			Name (Required) <br>
-  			<input type="text" name="name" value="John Doe"><br>
+  			<input type="text" name="name" id="fullName"><br>
 
   			Link to Photo Image (Required) <br>
-			<input type="text" name="profilePic" value="defaultImg"><br><br>
+			<input type="text" name="profilePic" id="photoLink">
 
-			<input type="submit" value="Submit">
+			
 			<hr>
 
 			<h3>Question 1</h3>
 			<p>Who is you favorite My Little Pony Character?</p>
-			<select name="question1">
+			<select name="question1" id="question1">
 			    <option value="1">Apple Jack</option>
 			    <option value="2">Twilight Sparkle</option>
 			    <option value="3">Pinky Pie</option>
@@ -35,7 +37,7 @@
 
 			<h3>Question 2</h3>
 			<p>Are you an early riser or a Night Owl?</p>
-			<select name="question2">
+			<select name="question2" id="question2">
 			    <option value="1">Morning</option>
 			    <option value="2">Night</option>
 			    <option value="3">Get up whenever I want</option>
@@ -44,7 +46,7 @@
 
 			<h3>Question 3</h3>
 			<p>What political party do you associate yourself with?</p>
-			<select name="question3">
+			<select name="question3" id="question3">
 				<option value="1">Democrat</option>
 			    <option value="2">Republican</option>
 			    <option value="3">Green Party</option>
@@ -54,7 +56,7 @@
 
 			<h3>Question 4</h3>
 			<p>What is your favorite Ice Cream?</p>
-			<select name="question4">
+			<select name="question4" id="question4">
 			    <option value="1">Chocolate</option>
 			    <option value="2">Vanilla</option>
 			    <option value="3">Strawberry</option>
@@ -64,7 +66,7 @@
 
 			<h3>Question 5</h3>
 			<p>What is your favorite sport?</p>
-			<select name="question5">
+			<select name="question5" id="question5">
 			    <option value="1">Basketball</option>
 			    <option value="2">Football</option>
 			    <option value="3">Soccer</option>
@@ -74,7 +76,7 @@
 
 			<h3>Question 6</h3>
 			<p>What is your favorite food?</p>
-			<select name="question1">
+			<select name="question1" id="question6">
 			    <option value="1">Waffles</option>
 			    <option value="2">Chicken</option>
 			    <option value="3">Waffles and Chicken</option>
@@ -87,7 +89,7 @@
 
 			<h3>Question 7</h3>
 			<p>What genre of music do you like?</p>
-			<select name="question1">
+			<select name="question7" id="question7">
 			    <option value="1">R&amp;B</option>
 			    <option value="2">Pop</option>
 			    <option value="3">Country</option>
@@ -100,20 +102,71 @@
 
 
 			<h3>Question 8</h3>
-			<p>Do you know what woke means?</p>
+			<p>Are you going to watch the Black Panther Movie?</p>
+			<select name="question8" id="question8">
+			    <option value="1">Yes</option>
+			    <option value="2">No</option>
+			 </select>
 
 			<h3>Question 9</h3>
 			<p>What is your favorite season?</p>
+			<select name="question9" id="question9">
+			    <option value="1">Fall, Pumpkin Latte all day!</option>
+			    <option value="2">Spring,Spring showers all day! </option>
+			    <option value="3">Summer, I like it hot!</option>
+			    <option value="4">Winter, I love the snow!</option>
+			 </select>
 
 			<h3>Question 10</h3>
 			<p>What is your favorite TV Show?</p>
+			<select name="question10" id="question10">
+			    <option value="1">Insecure</option>
+			    <option value="2">WestWorld </option>
+			    <option value="3">Game of Thrones</option>
+			    <option value="4">I don&#39;t watch tv</option>
+			 </select><br><br>
 
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" id="submit">
 		</form>
 
-		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+		<script>
+
+			$("#submit").on("click", function(event) {
+      		//prevents the button from refreshing
+      		event.preventDefault();
+
+      //create a new friend object
+      var newFriend = {
+      	"name":$("#fullName").val().trim(),
+      	"photo":$("#photoLink").val().trim(),
+        "scores":[   
+	        $("#question1 option:selected").attr("value"),
+	        $("#question2 option:selected").attr("value"),
+	        $("#question3 option:selected").attr("value"),
+	        $("#question4 option:selected").attr("value"),
+	        $("#question5 option:selected").attr("value"),
+	        $("#question6 option:selected").attr("value"),
+	        $("#question7 option:selected").attr("value"),
+	        $("#question8 option:selected").attr("value"),
+	        $("#question9 option:selected").attr("value"),
+	        $("#question10 option:selected").attr("value")
+	       
+        ]
+      };
+      console.log(newFriend,"frontend");
+
+      // Question: What does this code do??
+      $.post("/api/friends",newFriend)
+      .done(function(data) {
+        console.log(data);
+        //alert("Adding friend...");
+      });
+    });
+		</script>
 	</body>
 
 </html>
