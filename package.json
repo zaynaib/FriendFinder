@@ -1,6 +1,9 @@
 {
   "name": "friendfinder",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.2"
+  },
   "description": "This app helps find lonely people new friends!",
   "main": "server.js",
   "scripts": {
