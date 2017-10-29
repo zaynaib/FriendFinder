@@ -8,8 +8,41 @@
 	</head>
 
 	<body>
-		<h1>Friend Finder Survey</h1>
 
+		<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Best Match</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div id="matchingFriend">
+        		<h3 id="friendNameModal"></h3>
+        		<img id="friendProfilePic"/>
+
+
+        	
+        </div>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+		<h1>Friend Finder Survey</h1>
+		<div class="container">
 		<h2>Survey</h2>
 
 		<h3>About You</h3>
@@ -126,9 +159,9 @@
 			    <option value="4">I don&#39;t watch tv</option>
 			 </select><br><br>
 
-			<input type="submit" value="Submit" id="submit">
+			<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Submit" id="submit">Submit</button>
 		</form>
-
+	</div>
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -162,7 +195,12 @@
       // Question: What does this code do??
       $.post("/api/friends",newFriend)
       .done(function(data) {
-        console.log(data);
+        console.log(data.name);
+        console.log(data.photo);
+        $("#friendNameModal").append(data.name);
+        $("#friendProfilePic").attr("width","400px");
+        $("#friendProfilePic").attr("src",data.photo);
+        //$("#friendProfilePic").attr("src",data.photo);
         //alert("Adding friend...");
       });
     });

@@ -5,7 +5,7 @@
 var friends = [
 {
   "name":"Ahmed",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "photo":"http://18216-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2017/07/beaut.jpg",
   "scores":[
       5,
       1,
@@ -21,7 +21,7 @@ var friends = [
 },
 {
   "name":"Bob",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "photo":"http://18216-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2017/07/beaut.jpg",
   "scores":[
       1,
       2,
@@ -37,7 +37,7 @@ var friends = [
 },
 {
   "name":"Sally",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "photo":"http://18216-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2017/07/beaut.jpg",
   "scores":[
       6,
       3,
@@ -53,7 +53,7 @@ var friends = [
 },
 {
   "name":"Peter",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "photo":"http://18216-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2017/07/beaut.jpg",
   "scores":[
       3,
       2,
@@ -69,7 +69,7 @@ var friends = [
 },
 {
   "name":"Tony",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "photo":"http://18216-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2017/07/beaut.jpg",
   "scores":[
       4,
       2,
@@ -85,42 +85,6 @@ var friends = [
 }
   
 ];
-
-
- var totalFriends = friends;
-
-
-
-function totalDifference(arr1,arr2){
-  var sum = 0;
-  for(var i =0; i<arr1.length;i++){
-    sum = sum + Math.abs(arr1[i] -arr2[i])
-  }
-  return sum
-}
-
-var myDiff = totalDifference(totalFriends[0].scores,totalFriends[1].scores);
-var myDiff1 = totalDifference(totalFriends[0].scores,totalFriends[2].scores);
-//console.log(myDiff);
-//console.log(myDiff1);
-
-
-var match = 10000;
-var friendToSetup =totalFriends[0].scores;
-var newFriend;
-for(var i = 1; i<totalFriends.length; i++){
-  //console.log("working")
-  newFriend = totalFriends[i].scores;
-
-  //console.log(totalDifference(friendToSetup,newFriend));
-  if(totalDifference(friendToSetup,newFriend)< match){
-    //console.log("matching a friend")
-    match = totalDifference(friendToSetup,newFriend);
-    //console.log(match);
-     console.log(i);
-  }
-
-}
 
 
 module.exports = friends;
