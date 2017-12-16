@@ -19,7 +19,8 @@ The app will then display the name and picture of the user with the best overall
 
 
 In the terminal or git bash
-``
+
+```
  git clone https://github.com/zaynaib/FriendFinder.git
 
 ```
@@ -30,3 +31,4 @@ Install node package dependencies and start the program
 npm i && npm start
 ```
 
+Find yourself a friend with this app [Link to FriendFinder App](https://dry-garden-14114.herokuapp.com/)
