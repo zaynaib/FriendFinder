@@ -23,6 +23,7 @@ Find yourself a friend with this app [Link to FriendFinder App](https://dry-gard
 
 ## Download Locally
 
+In order to download this app locally you will need Node.js install on your machine.
 
 In the terminal or git bash
 
